@@ -12,7 +12,7 @@ CODEOWNERS = ["@syssi"]
 
 CONF_BALANCING = "balancing"
 CONF_ONLINE_STATUS = "online_status"
-CONF_LIMITING = "current_limiting"
+CONF_LIMITING = "limiting"
 CONF_HEATING = "heating"
 
 ICON_CHARGING = "mdi:battery-charging"
