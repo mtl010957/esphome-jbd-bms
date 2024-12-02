@@ -32,6 +32,8 @@ static const uint8_t JBD_CMD_BALANCER = 0xE2;  // Enable/disable balancer
 
 static const uint8_t JBD_MOS_CHARGE = 0x01;
 static const uint8_t JBD_MOS_DISCHARGE = 0x02;
+static const uint8_t JBD_MOS_LIMIT = 0x04;
+static const uint8_t JBD_MOS_HEAT = 0x08;
 
 static const uint8_t ERRORS_SIZE = 16;
 static const char *const ERRORS[ERRORS_SIZE] = {
@@ -295,6 +297,8 @@ void JbdBmsBle::on_hardware_info_data_(const std::vector<uint8_t> &data) {
   this->publish_state_(this->charging_switch_, operation_status & JBD_MOS_CHARGE);
   this->publish_state_(this->discharging_binary_sensor_, operation_status & JBD_MOS_DISCHARGE);
   this->publish_state_(this->discharging_switch_, operation_status & JBD_MOS_DISCHARGE);
+  this->publish_state_(this->limiting_binary_sensor_, operation_status & JBD_MOS_LIMIT);
+  this->publish_state_(this->heating_binary_sensor_, operation_status & JBD_MOS_HEAT);
 
   // 21    2   0x04                   Cell count
   this->publish_state_(this->battery_strings_sensor_, data[21]);

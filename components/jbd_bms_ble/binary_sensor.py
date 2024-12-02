@@ -12,16 +12,22 @@ CODEOWNERS = ["@syssi"]
 
 CONF_BALANCING = "balancing"
 CONF_ONLINE_STATUS = "online_status"
+CONF_LIMITING = "limiting"
+CONF_HEATING = "heating"
 
 ICON_CHARGING = "mdi:battery-charging"
 ICON_DISCHARGING = "mdi:power-plug"
 ICON_BALANCING = "mdi:battery-heart-variant"
+ICON_LIMITING = "mdi:battery-alert-variant"
+ICON_HEATING = "mdi:heat-wave"
 
 BINARY_SENSORS = [
     CONF_CHARGING,
     CONF_DISCHARGING,
     CONF_BALANCING,
     CONF_ONLINE_STATUS,
+    CONF_LIMITING,
+    CONF_HEATING,
 ]
 
 CONFIG_SCHEMA = cv.Schema(
@@ -35,6 +41,12 @@ CONFIG_SCHEMA = cv.Schema(
         ),
         cv.Optional(CONF_BALANCING): binary_sensor.binary_sensor_schema(
             icon=ICON_BALANCING
+        ),
+        cv.Optional(CONF_LIMITING): binary_sensor.binary_sensor_schema(
+            icon=ICON_LIMITING
+        ),
+        cv.Optional(CONF_HEATING): binary_sensor.binary_sensor_schema(
+            icon=ICON_HEATING
         ),
         cv.Optional(CONF_ONLINE_STATUS): binary_sensor.binary_sensor_schema(
             device_class=DEVICE_CLASS_CONNECTIVITY,
