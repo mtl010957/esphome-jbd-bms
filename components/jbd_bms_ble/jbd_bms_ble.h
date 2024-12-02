@@ -37,6 +37,12 @@ class JbdBmsBle : public esphome::ble_client::BLEClientNode, public PollingCompo
   void set_online_status_binary_sensor(binary_sensor::BinarySensor *online_status_binary_sensor) {
     online_status_binary_sensor_ = online_status_binary_sensor;
   }
+  void set_limiting_binary_sensor(binary_sensor::BinarySensor *limiting_binary_sensor) {
+    limiting_binary_sensor_ = limiting_binary_sensor;
+  }
+  void set_heating_binary_sensor(binary_sensor::BinarySensor *heating_binary_sensor) {
+    heating_binary_sensor_ = heating_binary_sensor;
+  }
   void set_state_of_charge_sensor(sensor::Sensor *state_of_charge_sensor) {
     state_of_charge_sensor_ = state_of_charge_sensor;
   }
@@ -123,6 +129,8 @@ class JbdBmsBle : public esphome::ble_client::BLEClientNode, public PollingCompo
   binary_sensor::BinarySensor *charging_binary_sensor_;
   binary_sensor::BinarySensor *discharging_binary_sensor_;
   binary_sensor::BinarySensor *online_status_binary_sensor_;
+  binary_sensor::BinarySensor *limiting_binary_sensor_;
+  binary_sensor::BinarySensor *heating_binary_sensor_;
 
   sensor::Sensor *state_of_charge_sensor_;
   sensor::Sensor *total_voltage_sensor_;
