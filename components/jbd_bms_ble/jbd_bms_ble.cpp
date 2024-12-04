@@ -33,7 +33,7 @@ static const uint8_t JBD_CMD_BALANCER = 0xE2;  // Enable/disable balancer
 static const uint8_t JBD_MOS_CHARGE = 0x01;
 static const uint8_t JBD_MOS_DISCHARGE = 0x02;
 static const uint8_t JBD_MOS_LIMIT = 0x04;
-static const uint8_t JBD_MOS_HEAT = 0x08;
+static const uint8_t JBD_MOS_HEAT = 0x80;
 
 static const uint8_t ERRORS_SIZE = 16;
 static const char *const ERRORS[ERRORS_SIZE] = {
